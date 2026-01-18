@@ -276,6 +276,8 @@ export const actionHandlers = handleThunks({
           props.edition = movieFile.edition;
           props.releaseGroup = movieFile.releaseGroup;
           props.indexerFlags = movieFile.indexerFlags;
+          props.isTrumpable = movieFile.isTrumpable;
+          props.remasterTitle = movieFile.remasterTitle;
 
           return updateItem({
             section,

@@ -13,6 +13,8 @@ namespace NzbDrone.Core.CustomFormats
         public IndexerFlags IndexerFlags { get; set; }
         public List<Language> Languages { get; set; }
         public string Filename { get; set; }
+        public bool IsTrumpable { get; set; }
+        public string RemasterTitle { get; set; }
 
         public CustomFormatInput()
         {

@@ -11,6 +11,8 @@ namespace NzbDrone.Core.Parser.Model
         public string Indexer { get; set; }
         public long Size { get; set; }
         public IndexerFlags IndexerFlags { get; set; }
+        public bool IsTrumpable { get; set; }
+        public string RemasterTitle { get; set; }
 
         public List<int> MovieIds { get; set; }
 
@@ -21,13 +23,17 @@ namespace NzbDrone.Core.Parser.Model
 
             grabbedHistory.Data.TryGetValue("indexer", out var indexer);
             grabbedHistory.Data.TryGetValue("size", out var sizeString);
+            grabbedHistory.Data.TryGetValue("remasterTitle", out var remasterTitle);
             Enum.TryParse(grabbedHistory.Data.GetValueOrDefault("indexerFlags"), out IndexerFlags indexerFlags);
+            bool.TryParse(grabbedHistory.Data.GetValueOrDefault("isTrumpable"), out var isTrumpable);
             long.TryParse(sizeString, out var size);
 
             Title = grabbedHistory.SourceTitle;
             Indexer = indexer;
             Size = size;
             IndexerFlags = indexerFlags;
+            IsTrumpable = isTrumpable;
+            RemasterTitle = remasterTitle;
             MovieIds = movieIds;
         }
     }

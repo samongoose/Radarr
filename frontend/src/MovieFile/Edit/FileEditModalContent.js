@@ -29,7 +29,9 @@ class FileEditModalContent extends Component {
       proper,
       real,
       edition,
-      releaseGroup
+      releaseGroup,
+      isTrumpable,
+      remasterTitle
     } = props;
 
     this.state = {
@@ -39,7 +41,9 @@ class FileEditModalContent extends Component {
       proper,
       real,
       edition,
-      releaseGroup
+      releaseGroup,
+      isTrumpable,
+      remasterTitle
     };
   }
 
@@ -79,7 +83,9 @@ class FileEditModalContent extends Component {
       proper,
       real,
       edition,
-      releaseGroup
+      releaseGroup,
+      isTrumpable,
+      remasterTitle
     } = this.state;
 
     const qualityOptions = qualities.map(({ id, name }) => {
@@ -196,6 +202,28 @@ class FileEditModalContent extends Component {
                     onChange={this.onInputChange}
                   />
                 </FormGroup>
+
+                <FormGroup>
+                  <FormLabel>{translate('Trumpable')}</FormLabel>
+
+                  <FormInputGroup
+                    type={inputTypes.CHECK}
+                    name="isTrumpable"
+                    value={isTrumpable}
+                    onChange={this.onInputChange}
+                  />
+                </FormGroup>
+
+                <FormGroup>
+                  <FormLabel>{translate('RemasterTitle')}</FormLabel>
+
+                  <FormInputGroup
+                    type={inputTypes.TEXT}
+                    name="remasterTitle"
+                    value={remasterTitle}
+                    onChange={this.onInputChange}
+                  />
+                </FormGroup>
               </Form>
           }
         </ModalBody>
@@ -224,6 +252,8 @@ FileEditModalContent.propTypes = {
   relativePath: PropTypes.string.isRequired,
   edition: PropTypes.string.isRequired,
   releaseGroup: PropTypes.string.isRequired,
+  isTrumpable: PropTypes.bool.isRequired,
+  remasterTitle: PropTypes.string.isRequired,
   languageIds: PropTypes.arrayOf(PropTypes.number).isRequired,
   languages: PropTypes.arrayOf(PropTypes.object).isRequired,
   indexerFlags: PropTypes.number.isRequired,

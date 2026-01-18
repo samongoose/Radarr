@@ -24,6 +24,8 @@ namespace NzbDrone.Core.MediaFiles
         public IndexerFlags IndexerFlags { get; set; }
         public MediaInfoModel MediaInfo { get; set; }
         public string Edition { get; set; }
+        public bool IsTrumpable { get; set; }
+        public string RemasterTitle { get; set; }
         public Movie Movie { get; set; }
         public List<Language> Languages { get; set; }
 
