@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace NzbDrone.Core.Indexers.PassThePopcorn
 {
@@ -40,5 +41,6 @@ namespace NzbDrone.Core.Indexers.PassThePopcorn
         public bool Checked { get; set; }
         public bool GoldenPopcorn { get; set; }
         public string FreeleechType { get; set; }
+        public Collection<object> Trumpable  { get; set; }
     }
 }

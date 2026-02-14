@@ -33,6 +33,8 @@ function createMapStateToProps() {
         indexerFlags: movieFile.indexerFlags,
         edition: movieFile.edition,
         releaseGroup: movieFile.releaseGroup,
+        isTrumpable: movieFile.isTrumpable,
+        remasterTitle: movieFile.remasterTitle,
         relativePath: movieFile.relativePath
       };
     }
@@ -66,7 +68,9 @@ class FileEditModalContentConnector extends Component {
       languageIds,
       edition,
       releaseGroup,
-      indexerFlags
+      indexerFlags,
+      isTrumpable,
+      remasterTitle
     } = payload;
 
     const quality = this.props.qualities.find((item) => item.id === qualityId);
@@ -93,6 +97,8 @@ class FileEditModalContentConnector extends Component {
         indexerFlags,
         edition,
         releaseGroup,
+        isTrumpable,
+        remasterTitle,
         quality: {
           quality,
           revision
@@ -129,6 +135,8 @@ FileEditModalContentConnector.propTypes = {
   real: PropTypes.bool.isRequired,
   edition: PropTypes.string.isRequired,
   releaseGroup: PropTypes.string.isRequired,
+  isTrumpable: PropTypes.bool.isRequired,
+  remasterTitle: PropTypes.string.isRequired,
   relativePath: PropTypes.string.isRequired,
   proper: PropTypes.bool.isRequired,
   dispatchFetchQualityProfileSchema: PropTypes.func.isRequired,

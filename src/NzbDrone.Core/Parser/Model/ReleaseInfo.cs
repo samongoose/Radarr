@@ -40,6 +40,10 @@ namespace NzbDrone.Core.Parser.Model
         [JsonIgnore]
         public IndexerFlags IndexerFlags { get; set; }
 
+        public bool IsTrumpable { get; set; }
+
+        public string RemasterTitle { get; set; }
+
         // Used to track pending releases that are being reprocessed
         [JsonIgnore]
         public PendingReleaseReason? PendingReleaseReason { get; set; }

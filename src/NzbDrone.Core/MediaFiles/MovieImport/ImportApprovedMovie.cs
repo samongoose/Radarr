@@ -96,6 +96,8 @@ namespace NzbDrone.Core.MediaFiles.MovieImport
                     movieFile.Movie = localMovie.Movie;
                     movieFile.ReleaseGroup = localMovie.ReleaseGroup;
                     movieFile.Edition = localMovie.Edition;
+                    movieFile.IsTrumpable = localMovie.Release?.IsTrumpable ?? false;
+                    movieFile.RemasterTitle = localMovie.Release?.RemasterTitle;
 
                     if (downloadClientItem?.DownloadId.IsNotNullOrWhiteSpace() == true)
                     {

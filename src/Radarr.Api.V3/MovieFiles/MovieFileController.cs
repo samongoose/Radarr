@@ -91,6 +91,12 @@ namespace Radarr.Api.V3.MovieFiles
             movieFile.Quality = movieFileResource.Quality;
             movieFile.Languages = movieFileResource.Languages;
             movieFile.Edition = movieFileResource.Edition;
+            if (movieFileResource.IsTrumpable.HasValue)
+            {
+                movieFile.IsTrumpable = movieFileResource.IsTrumpable.Value;
+            }
+
+            movieFile.RemasterTitle = movieFileResource.RemasterTitle;
             if (movieFileResource.ReleaseGroup != null)
             {
                 movieFile.ReleaseGroup = movieFileResource.ReleaseGroup;
@@ -138,6 +144,16 @@ namespace Radarr.Api.V3.MovieFiles
                 if (resource.ReleaseGroup != null)
                 {
                     movieFile.ReleaseGroup = resource.ReleaseGroup;
+                }
+
+                if (resource.IsTrumpable != null)
+                {
+                    movieFile.IsTrumpable = resource.IsTrumpable.Value;
+                }
+
+                if (resource.RemasterTitle != null)
+                {
+                    movieFile.RemasterTitle = resource.RemasterTitle;
                 }
 
                 if (resource.SceneName != null && SceneChecker.IsSceneTitle(resource.SceneName))
@@ -227,6 +243,16 @@ namespace Radarr.Api.V3.MovieFiles
                 if (resourceMovieFile.IndexerFlags.HasValue)
                 {
                     movieFile.IndexerFlags = (IndexerFlags)resourceMovieFile.IndexerFlags;
+                }
+
+                if (resourceMovieFile.IsTrumpable.HasValue)
+                {
+                    movieFile.IsTrumpable = resourceMovieFile.IsTrumpable.Value;
+                }
+
+                if (resourceMovieFile.RemasterTitle != null)
+                {
+                    movieFile.RemasterTitle = resourceMovieFile.RemasterTitle;
                 }
             }
 

@@ -42,7 +42,9 @@ namespace NzbDrone.Core.CustomFormats
                 Movie = remoteMovie.Movie,
                 Size = size,
                 Languages = remoteMovie.Languages,
-                IndexerFlags = remoteMovie.Release?.IndexerFlags ?? 0
+                IndexerFlags = remoteMovie.Release?.IndexerFlags ?? 0,
+                IsTrumpable = remoteMovie.Release?.IsTrumpable ?? false,
+                RemasterTitle = remoteMovie.Release?.RemasterTitle
             };
 
             return ParseCustomFormat(input);
@@ -79,7 +81,9 @@ namespace NzbDrone.Core.CustomFormats
                 Movie = movie,
                 Size = blocklist.Size ?? 0,
                 Languages = blocklist.Languages,
-                IndexerFlags = blocklist.IndexerFlags
+                IndexerFlags = blocklist.IndexerFlags,
+                IsTrumpable = false,
+                RemasterTitle = null
             };
 
             return ParseCustomFormat(input);
@@ -109,7 +113,9 @@ namespace NzbDrone.Core.CustomFormats
                 Movie = movie,
                 Size = size,
                 Languages = history.Languages,
-                IndexerFlags = indexerFlags
+                IndexerFlags = indexerFlags,
+                IsTrumpable = false,
+                RemasterTitle = null
             };
 
             return ParseCustomFormat(input);
@@ -135,7 +141,9 @@ namespace NzbDrone.Core.CustomFormats
                 Size = localMovie.Size,
                 Languages = localMovie.Languages,
                 IndexerFlags = localMovie.IndexerFlags,
-                Filename = Path.GetFileName(localMovie.Path)
+                Filename = Path.GetFileName(localMovie.Path),
+                IsTrumpable = false,
+                RemasterTitle = null
             };
 
             return ParseCustomFormat(input);
@@ -206,7 +214,9 @@ namespace NzbDrone.Core.CustomFormats
                 Size = movieFile.Size,
                 Languages = movieFile.Languages,
                 IndexerFlags = movieFile.IndexerFlags,
-                Filename = Path.GetFileName(movieFile.RelativePath)
+                Filename = Path.GetFileName(movieFile.RelativePath),
+                IsTrumpable = movieFile.IsTrumpable,
+                RemasterTitle = movieFile.RemasterTitle
             };
 
             return ParseCustomFormat(input, allCustomFormats);

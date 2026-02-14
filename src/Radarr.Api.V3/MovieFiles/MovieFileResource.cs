@@ -21,6 +21,8 @@ namespace Radarr.Api.V3.MovieFiles
         public string SceneName { get; set; }
         public string ReleaseGroup { get; set; }
         public string Edition { get; set; }
+        public bool? IsTrumpable { get; set; }
+        public string RemasterTitle { get; set; }
         public List<Language> Languages { get; set; }
         public QualityModel Quality { get; set; }
         public List<CustomFormatResource> CustomFormats { get; set; }
@@ -57,6 +59,8 @@ namespace Radarr.Api.V3.MovieFiles
                 Languages = model.Languages,
                 ReleaseGroup = model.ReleaseGroup,
                 Edition = model.Edition,
+                IsTrumpable = model.IsTrumpable,
+                RemasterTitle = model.RemasterTitle,
                 MediaInfo = model.MediaInfo.ToResource(model.SceneName),
                 OriginalFilePath = model.OriginalFilePath
             };
@@ -83,6 +87,8 @@ namespace Radarr.Api.V3.MovieFiles
                 Languages = model.Languages,
                 Edition = model.Edition,
                 ReleaseGroup = model.ReleaseGroup,
+                IsTrumpable = model.IsTrumpable,
+                RemasterTitle = model.RemasterTitle,
                 MediaInfo = model.MediaInfo.ToResource(model.SceneName),
                 QualityCutoffNotMet = upgradableSpecification?.QualityCutoffNotMet(movie.QualityProfile, model.Quality) ?? false,
                 OriginalFilePath = model.OriginalFilePath,

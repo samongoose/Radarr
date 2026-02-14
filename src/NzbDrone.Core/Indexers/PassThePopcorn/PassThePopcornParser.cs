@@ -95,7 +95,9 @@ namespace NzbDrone.Core.Indexers.PassThePopcorn
                             Container = torrent.Container,
                             Codec = torrent.Codec,
                             Resolution = torrent.Resolution,
-                            IndexerFlags = flags
+                            IndexerFlags = flags,
+                            IsTrumpable = (torrent.Trumpable?.Count ?? 0) > 0,
+                            RemasterTitle = torrent.RemasterTitle
                         });
                     }
                     catch (Exception e)
