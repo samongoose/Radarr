@@ -1,7 +1,7 @@
 FROM lscr.io/linuxserver/radarr:latest
 
 # copy your locally-built Radarr binaries
-COPY ./_output/net8.0/linux-musl-x64 /app/radarr/bin
+COPY ./_output/net8.0/linux-musl-x64/Radarr /app/radarr/bin/Radarr
 COPY ./_output/UI /app/radarr/bin/UI
 
 # ensure executable
