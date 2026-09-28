@@ -66,9 +66,10 @@ namespace NzbDrone.Core.CustomFormats
 
             var movieInfo = new ParsedMovieInfo
             {
-                MovieTitles = new List<string>() { movie.Title },
+                MovieTitles = new List<string> { movie.Title },
                 SimpleReleaseTitle = parsed?.SimpleReleaseTitle ?? blocklist.SourceTitle.SimplifyReleaseTitle(),
                 ReleaseTitle = parsed?.ReleaseTitle ?? blocklist.SourceTitle,
+                Year = movie.Year,
                 Edition = parsed?.Edition,
                 Quality = blocklist.Quality,
                 Languages = blocklist.Languages,
@@ -98,9 +99,10 @@ namespace NzbDrone.Core.CustomFormats
 
             var movieInfo = new ParsedMovieInfo
             {
-                MovieTitles = new List<string>() { movie.Title },
+                MovieTitles = new List<string> { movie.Title },
                 SimpleReleaseTitle = parsed?.SimpleReleaseTitle ?? history.SourceTitle.SimplifyReleaseTitle(),
                 ReleaseTitle = parsed?.ReleaseTitle ?? history.SourceTitle,
+                Year = movie.Year,
                 Edition = parsed?.Edition,
                 Quality = history.Quality,
                 Languages = history.Languages,
@@ -125,9 +127,10 @@ namespace NzbDrone.Core.CustomFormats
         {
             var movieInfo = new ParsedMovieInfo
             {
-                MovieTitles = new List<string>() { localMovie.Movie.Title },
+                MovieTitles = new List<string> { localMovie.Movie.Title },
                 SimpleReleaseTitle = localMovie.SceneName.IsNotNullOrWhiteSpace() ? localMovie.SceneName.SimplifyReleaseTitle() : Path.GetFileName(localMovie.Path).SimplifyReleaseTitle(),
                 ReleaseTitle = localMovie.SceneName,
+                Year = localMovie.Movie.Year,
                 Quality = localMovie.Quality,
                 Edition = localMovie.Edition,
                 Languages = localMovie.Languages,
@@ -199,8 +202,9 @@ namespace NzbDrone.Core.CustomFormats
 
             var movieInfo = new ParsedMovieInfo
             {
-                MovieTitles = new List<string>() { movie.Title },
+                MovieTitles = new List<string> { movie.Title },
                 SimpleReleaseTitle = releaseTitle.SimplifyReleaseTitle(),
+                Year = movie.Year,
                 Quality = movieFile.Quality,
                 Languages = movieFile.Languages,
                 ReleaseGroup = movieFile.ReleaseGroup,
